@@ -23,6 +23,18 @@ requirements:
     - setuptools_scm
     - pytest
     - pytest-runner
+    - numpy
+    - scipy
+    - matplotlib
+    - netCDF4
+    - future
+    - configobj
+    - pillow
+    - pyproj
+    - cartopy
+    - rasterio
+    - oil_library-opendrift
+    - opendrift-landmask-data
   run:
     - python
     - numpy
