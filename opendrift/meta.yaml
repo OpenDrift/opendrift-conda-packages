@@ -1,0 +1,50 @@
+{% set name = "opendrift" %}
+{% set version = "1.1.0rc1" %}
+
+package:
+  name: "{{ name|lower }}"
+  version: "{{ version }}"
+
+source:
+  git_url: https://github.com/gauteh/opendrift.git
+  git_rev: dist
+
+build:
+  number: 0
+  script: "{{ PYTHON }} -m pip install . -vv"
+  noarch: generic
+
+requirements:
+  host:
+    - python
+    - pip
+    - setuptools
+    - pytest
+    - setuptools_scm
+    - pytest
+    - pytest-runner
+  run:
+    - python
+    - numpy
+    - scipy
+    - matplotlib
+    - netCDF4
+    - future
+    - configobj
+    - pillow
+    - pyproj
+    - cartopy
+    - rasterio
+    - opendrift-landmask-data
+    - oil_library-opendrift
+
+test:
+  imports:
+    - opendrift
+
+about:
+  home: https://github.com/OpenDrift/opendrift
+  license: GPLv2
+  summary: Open source framework for ocean trajectory modelling
+
+

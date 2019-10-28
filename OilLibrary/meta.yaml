@@ -1,0 +1,44 @@
+{% set name = "oil_library-opendrift" %}
+{% set version = "1.1.1.1rc1" %}
+
+package:
+  name: "{{ name|lower }}"
+  version: "{{ version }}"
+
+source:
+  git_url: https://github.com/OpenDrift/OilLibrary.git
+  git_rev: master
+
+build:
+  number: 0
+  script: "{{ PYTHON }} setup.py install"
+  noarch: generic
+
+requirements:
+  build:
+    - python >=3
+    - numpy
+    - scipy
+    - setuptools
+    - sqlalchemy
+    - transaction
+    - zope.sqlalchemy
+    - awesome-slugify
+    - unit_conversion
+    - pytest
+    - gitpython
+  run:
+    - numpy
+    - python >=3
+    - sqlalchemy
+    - transaction
+    - zope.sqlalchemy
+    - awesome-slugify
+    - pytest
+    - unit_conversion
+
+about:
+  home: https://github.com/OpenDrift/OilLibrary
+  license: Public Domain
+
+

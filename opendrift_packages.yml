@@ -1,0 +1,9 @@
+name: opendrift_packages
+channels:
+  - conda-forge
+  - NOAA-ORR-ERD
+dependencies:
+  - anaconda-client
+  - conda-build
+  - conda-verify
+

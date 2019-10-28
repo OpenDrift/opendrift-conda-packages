@@ -1,0 +1,41 @@
+{% set name = "opendrift-landmask-data" %}
+{% set version = "0.1rc13" %}
+
+package:
+  name: "{{ name|lower }}"
+  version: "{{ version }}"
+
+source:
+  git_url: https://github.com/OpenDrift/opendrift-landmask-data.git
+  git_rev: master
+
+build:
+  number: 0
+  script: "{{ PYTHON }} setup.py install"
+  noarch: generic
+
+requirements:
+  host:
+    - python
+    - setuptools
+    - pytest
+    - setuptools_scm
+    - shapely
+    - rasterio
+    - numpy
+  run:
+    - python
+    - numpy
+    - shapely
+    - cartopy
+    - rasterio
+
+test:
+  imports:
+    - opendrift_landmask_data
+
+about:
+  home: https://github.com/OpenDrift/opendrift-landmask-data
+  license: GPLv2
+  summary: Joined shapes of the GSHHS land data set for faster landmask shapes
+
