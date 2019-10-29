@@ -12,7 +12,7 @@ source:
 build:
   number: 0
   script: "{{ PYTHON }} setup.py install"
-  noarch: generic
+  noarch: python
 
 requirements:
   build:
@@ -34,8 +34,8 @@ requirements:
     - transaction
     - zope.sqlalchemy
     - awesome-slugify
-    - pytest
     - unit_conversion
+    - pytest
 
 about:
   home: https://github.com/OpenDrift/OilLibrary

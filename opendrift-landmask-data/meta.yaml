@@ -1,5 +1,5 @@
 {% set name = "opendrift-landmask-data" %}
-{% set version = "0.1rc13" %}
+{% set version = "0.1rc14" %}
 
 package:
   name: "{{ name|lower }}"
@@ -11,24 +11,27 @@ source:
 
 build:
   number: 0
-  script: "{{ PYTHON }} setup.py install"
-  noarch: generic
+  script: "{{ PYTHON }} setup.py build install"
+  noarch: python
 
+# XXX: relax libgdal and rasterio requirements once conda-forge / defaults channel consolidate better.
 requirements:
   host:
     - python
     - setuptools
     - pytest
     - setuptools_scm
+    - libgdal >=2.4.1
+    - rasterio >=1.0.25
     - shapely
-    - rasterio
     - numpy
   run:
     - python
     - numpy
     - shapely
     - cartopy
-    - rasterio
+    - libgdal >=2.4.1
+    - rasterio >=1.0.25
 
 test:
   imports:

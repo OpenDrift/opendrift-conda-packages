@@ -15,9 +15,10 @@ conda activate opendrift_packages
 
 for package in opendrift-landmask-data OilLibrary opendrift; do
   echo "building ${package}.."
-  mkdir -p "packages/${package}"
 
-  conda build --no-anaconda-upload --output-folder "packages/${package}" "${package}"
+  conda build --no-anaconda-upload "${package}"
 
 done
+
+echo "The newly built packages, if successful, should now be in miniconda3/conda-bld/... See the log above for details."
 

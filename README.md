@@ -13,7 +13,9 @@ $ conda activate opendrift
 3. Add channels and install:
 
 ```sh
-$ conda config --add channels OpenDrift NOAA-ORR-ERD conda-forge
+$ conda config --add channels NOAA-ORD-ERR
+$ conda config --add channels conda-forge
+$ conda config --add channels OpenDrift
 $ conda install opendrift
 ```
 
