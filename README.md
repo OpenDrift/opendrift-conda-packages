@@ -6,14 +6,14 @@
 2. Create environment:
 
 ```sh
-$ conda create opendrift --name opendrift
+$ conda create opendrift --name opendrift python=3
 $ conda activate opendrift
 ```
 
 3. Add channels and install:
 
 ```sh
-$ conda config --add channels NOAA-ORD-ERR
+$ conda config --add channels NOAA-ORR-ERD
 $ conda config --add channels conda-forge
 $ conda config --add channels OpenDrift
 $ conda install opendrift
@@ -22,6 +22,8 @@ $ conda install opendrift
 ## For maintainers
 
 ### Uploading new versions
+
+Make sure you have conda-forge and noaa-orr-erd in your channels, with conda-forge higher priority.
 
 1. Update version-numbers and make sure URLs point to new versions in `meta.yml` for each package.
 2. Run `./build-all.sh` to build packages into `packages/`.

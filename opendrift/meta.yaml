@@ -10,7 +10,7 @@ source:
   git_rev: dist
 
 build:
-  number: 0
+  number: 1
   script: "{{ PYTHON }} -m pip install . -vv"
   noarch: python
 
@@ -23,18 +23,7 @@ requirements:
     - setuptools_scm
     - pytest
     - pytest-runner
-    - numpy
-    - scipy
-    - matplotlib
-    - netCDF4
-    - future
-    - configobj
-    - pillow
-    - pyproj
-    - cartopy
-    - rasterio
-    - oil_library-opendrift
-    - opendrift-landmask-data
+
   run:
     - python >=3
     - numpy
@@ -46,13 +35,8 @@ requirements:
     - pillow
     - pyproj
     - cartopy
-    - rasterio
     - opendrift-landmask-data
     - oil_library-opendrift
-
-test:
-  imports:
-    - opendrift
 
 about:
   home: https://github.com/OpenDrift/opendrift

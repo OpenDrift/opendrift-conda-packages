@@ -10,7 +10,7 @@ source:
   git_rev: master
 
 build:
-  number: 0
+  number: 1
   script: "{{ PYTHON }} setup.py build install"
   noarch: python
 
@@ -21,17 +21,16 @@ requirements:
     - setuptools
     - pytest
     - setuptools_scm
-    - libgdal >=2.4.1
-    - rasterio >=1.0.25
+    - libgdal >=2.4
+    - rasterio >=1.1
     - shapely
-    - numpy
   run:
     - python
     - numpy
     - shapely
     - cartopy
-    - libgdal >=2.4.1
-    - rasterio >=1.0.25
+    - libgdal >=2.4
+    - rasterio >=1.1
 
 test:
   imports:

@@ -1,7 +1,6 @@
 name: opendrift_packages
 channels:
   - conda-forge
-  - NOAA-ORR-ERD
 dependencies:
   - python>=3.7
   - anaconda-client
