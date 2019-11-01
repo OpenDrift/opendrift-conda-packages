@@ -10,7 +10,7 @@ source:
   git_rev: 3f65a60
 
 build:
-  number: 1
+  number: 2
   script: "{{ PYTHON }} setup.py install"
   noarch: python
 
@@ -22,7 +22,7 @@ requirements:
     - setuptools
     - sqlalchemy
     - transaction
-    - zope.sqlalchemy
+    - zope.sqlalchemy <1.2
     - awesome-slugify
     - unit_conversion
     - pytest
@@ -32,7 +32,7 @@ requirements:
     - python >=3
     - sqlalchemy
     - transaction
-    - zope.sqlalchemy
+    - zope.sqlalchemy <1.2
     - awesome-slugify
     - unit_conversion
     - pytest
