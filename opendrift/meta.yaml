@@ -1,5 +1,5 @@
 {% set name = "opendrift" %}
-{% set version = "1.1.1" %}
+{% set version = "1.2.0" %}
 
 package:
   name: "{{ name|lower }}"
@@ -29,7 +29,8 @@ requirements:
     - numpy
     - scipy
     - matplotlib
-    - netCDF4
+    - netCDF4=1.5.1.2
+    - libnetcdf=4.6.2
     - future
     - configobj
     - pillow
