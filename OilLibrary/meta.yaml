@@ -1,5 +1,5 @@
 {% set name = "oil_library-opendrift" %}
-{% set version = "1.1.1.1rc1" %}
+{% set version = "1.1.1.2" %}
 
 package:
   name: "{{ name|lower }}"
@@ -7,10 +7,10 @@ package:
 
 source:
   git_url: https://github.com/OpenDrift/OilLibrary.git
-  git_rev: 3f65a60
+  git_rev: e3274f15e36589d430c42c5c1421309e2b9e4b61
 
 build:
-  number: 2
+  number: 0
   script: "{{ PYTHON }} setup.py install"
   noarch: python
 
