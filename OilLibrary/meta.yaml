@@ -10,7 +10,7 @@ source:
   git_rev: e3274f15e36589d430c42c5c1421309e2b9e4b61
 
 build:
-  number: 0
+  number: 1
   script: "{{ PYTHON }} setup.py install"
   noarch: python
 
