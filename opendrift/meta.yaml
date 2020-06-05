@@ -10,7 +10,7 @@ source:
   git_rev: "v{{ version }}"
 
 build:
-  number: 0
+  number: 1
   script: "{{ PYTHON }} -m pip install . -vv"
   noarch: python
 
@@ -35,7 +35,7 @@ requirements:
     - pillow
     - pyproj
     - cartopy
-    - opendrift-landmask-data
+    - opendrift-landmask-data>=0.2
     - oil_library-opendrift
 
 about:
