@@ -1,5 +1,5 @@
 {% set name = "opendrift-landmask-data" %}
-{% set version = "0.2" %}
+{% set version = "0.3" %}
 
 package:
   name: "{{ name|lower }}"
@@ -10,27 +10,20 @@ source:
   git_rev: "v{{ version }}"
 
 build:
-  number: 2
+  number: 0
   script: "{{ PYTHON }} setup.py build install"
   noarch: python
 
-# XXX: relax libgdal and rasterio requirements once conda-forge / defaults channel consolidate better.
 requirements:
-  host:
-    - python
+  build:
+    - python >=3
     - setuptools
-    - pytest
     - setuptools_scm
-    - libgdal >=2.4
-    - rasterio >=1.1
-    - shapely
   run:
-    - python
+    - python >=3
     - numpy
     - shapely
-    - cartopy
-    - libgdal >=2.4
-    - rasterio >=1.1
+    - affine
 
 test:
   imports:
@@ -38,6 +31,6 @@ test:
 
 about:
   home: https://github.com/OpenDrift/opendrift-landmask-data
-  license: GPLv2
+  license: LGPLv3
   summary: Joined shapes of the GSHHS land data set for faster landmask shapes
 
