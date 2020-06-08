@@ -10,7 +10,7 @@ source:
   git_rev: e3274f15e36589d430c42c5c1421309e2b9e4b61
 
 build:
-  number: 1
+  number: 2
   script: "{{ PYTHON }} setup.py install"
   noarch: python
 
@@ -25,17 +25,14 @@ requirements:
     - zope.sqlalchemy <1.2
     - awesome-slugify
     - unit_conversion
-    - pytest
     - gitpython
   run:
-    - numpy
     - python >=3
     - sqlalchemy
     - transaction
     - zope.sqlalchemy <1.2
     - awesome-slugify
     - unit_conversion
-    - pytest
 
 about:
   home: https://github.com/OpenDrift/OilLibrary
