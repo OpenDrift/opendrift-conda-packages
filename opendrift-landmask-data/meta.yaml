@@ -1,5 +1,5 @@
 {% set name = "opendrift-landmask-data" %}
-{% set version = "0.3" %}
+{% set version = "0.5" %}
 
 package:
   name: "{{ name|lower }}"
@@ -10,7 +10,7 @@ source:
   git_rev: "v{{ version }}"
 
 build:
-  number: 3
+  number: 0
   script: "{{ PYTHON }} setup.py build install"
   noarch: python
 

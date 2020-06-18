@@ -1,5 +1,5 @@
 {% set name = "opendrift" %}
-{% set version = "1.2.2" %}
+{% set version = "1.2.3" %}
 
 package:
   name: "{{ name|lower }}"
@@ -10,7 +10,7 @@ source:
   git_rev: "v{{ version }}"
 
 build:
-  number: 0
+  number: 1
   script: "{{ PYTHON }} -m pip install . -vv"
   noarch: python
 
@@ -30,8 +30,9 @@ requirements:
     - configobj
     - pyproj
     - cartopy
-    - opendrift-landmask-data>=0.3
+    - opendrift-landmask-data>=0.5
     - oil_library-opendrift
+    - gdal>=3.1
 
 about:
   home: https://github.com/OpenDrift/opendrift
