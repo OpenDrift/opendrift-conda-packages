@@ -1,6 +1,6 @@
-version: 2
+version: 2.1
 jobs:
-  build:
+  build-pkg:
     docker:
       - image: continuumio/miniconda3
     resource_class: large
@@ -15,7 +15,7 @@ jobs:
       - run:
           name: Install requirements
           command: |
-            if [ ! -e /opt/conda/envs/opendrift ]; then
+            if [ ! -e /opt/conda/envs/opendrift_packages ]; then
               conda env create --file opendrift_packages.yml
               source activate opendrift_packages
             fi
@@ -25,5 +25,57 @@ jobs:
             - "/opt/conda/envs"
       - run:
           name: Building opendrift-landmask-data
-          command: source activate opendrift_packages && conda build opendrift-landmask-data
+          command: |
+            mkdir -p builds/pkgs
+            source activate opendrift_packages
+            conda build --output-folder builds/pkgs --no-anaconda-upload opendrift-landmask-data
+            ls -R builds/
+
+      - persist_to_workspace:
+          root: builds
+          paths: pkgs
+
+  deploy-pkg:
+    docker:
+      - image: continuumio/miniconda3
+    resource_class: large
+    steps:
+      - checkout
+      - attach_workspace:
+          at: builds
+      - run:
+          name: Update packages
+          command: apt-get update
+
+      - restore_cache:
+          key: v1-deps1-{{ checksum "opendrift_packages.yml" }}
+      - run:
+          name: Install requirements
+          command: |
+            if [ ! -e /opt/conda/envs/opendrift_packages ]; then
+              conda env create --file opendrift_packages.yml
+              source activate opendrift_packages
+            fi
+      - save_cache:
+          key: v1-deps1-{{ checksum "opendrift_packages.yml" }}
+          paths:
+            - "/opt/conda/envs"
+      - run:
+          name: Uploading opendrift-landmask-data
+          command: |
+            ls -R builds/
+            source activate opendrift_packages
+            anaconda upload -t $ANACONDA_TOKEN -u OpenDrift builds/pkgs/noarch/opendrift-landmask-data*
+
+workflows:
+  version: 2.1
+  build:
+    jobs:
+      - build-pkg
+      - deploy-pkg:
+          requires:
+            - build-pkg
+          filters:
+            branches:
+             only: master
 
