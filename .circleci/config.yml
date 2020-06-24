@@ -29,6 +29,8 @@ jobs:
             mkdir -p builds/pkgs
             source activate opendrift_packages
             conda build --output-folder builds/pkgs --no-anaconda-upload opendrift-landmask-data
+            conda build --output-folder builds/pkgs --no-anaconda-upload OilLibrary
+            conda build --output-folder builds/pkgs --no-anaconda-upload opendrift-landmask-data
             ls -R builds/
 
       - persist_to_workspace:
@@ -65,7 +67,7 @@ jobs:
           command: |
             ls -R builds/
             source activate opendrift_packages
-            anaconda upload -t $ANACONDA_TOKEN -u OpenDrift builds/pkgs/noarch/opendrift-landmask-data*
+            echo anaconda upload -t $ANACONDA_TOKEN -u OpenDrift builds/pkgs/noarch/opendrift-landmask-data*
 
 workflows:
   version: 2.1
