@@ -18,6 +18,8 @@ jobs:
             if [ ! -e /opt/conda/envs/opendrift_packages ]; then
               conda env create --file opendrift_packages.yml
               source activate opendrift_packages
+              conda config channels --add noaa-ord-erd
+              conda config channels --add conda-forge
             fi
       - save_cache:
           key: v1-deps1-{{ checksum "opendrift_packages.yml" }}
