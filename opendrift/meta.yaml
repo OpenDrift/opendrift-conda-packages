@@ -30,7 +30,7 @@ requirements:
     - configobj
     - pyproj
     - cartopy
-    - opendrift-landmask-data>=0.5
+    - opendrift-landmask-data>=0.6
     - oil_library-opendrift
     - gdal>=3.1
 
