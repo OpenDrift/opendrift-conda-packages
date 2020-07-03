@@ -1,12 +1,9 @@
 name: opendrift_packages
 channels:
   - conda-forge
-  - noaa-orr-erd
 dependencies:
   - python>=3.7
   - anaconda-client
   - conda-build
   - conda-verify
-  - awesome-slugify
-  - unit_conversion
 

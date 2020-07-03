@@ -9,7 +9,11 @@ jobs:
       - run:
           name: Update packages
           command: apt-get update
-
+      - run:
+          name: Add conda channels
+          command: |
+              conda config --add channels noaa-orr-erd
+              conda config --add channels conda-forge
       - restore_cache:
           key: v3-deps1-{{ checksum "opendrift_packages.yml" }}
       - run:
@@ -18,8 +22,6 @@ jobs:
             if [ ! -e /opt/conda/envs/opendrift_packages ]; then
               conda env create --file opendrift_packages.yml
               source activate opendrift_packages
-              conda config --add channels noaa-orr-erd
-              conda config --add channels conda-forge
             fi
       - save_cache:
           key: v3-deps1-{{ checksum "opendrift_packages.yml" }}
@@ -50,7 +52,11 @@ jobs:
       - run:
           name: Update packages
           command: apt-get update
-
+      - run:
+          name: Add conda channels
+          command: |
+              conda config --add channels noaa-orr-erd
+              conda config --add channels conda-forge
       - restore_cache:
           key: v3-deps1-{{ checksum "opendrift_packages.yml" }}
       - run:
@@ -59,8 +65,6 @@ jobs:
             if [ ! -e /opt/conda/envs/opendrift_packages ]; then
               conda env create --file opendrift_packages.yml
               source activate opendrift_packages
-              conda config --add channels noaa-orr-erd
-              conda config --add channels conda-forge
             fi
       - save_cache:
           key: v3-deps1-{{ checksum "opendrift_packages.yml" }}
