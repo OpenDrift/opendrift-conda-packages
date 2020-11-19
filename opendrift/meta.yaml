@@ -36,6 +36,7 @@ requirements:
     - opendrift-landmask-data>=0.6
     - oil_library-opendrift>=1.1.1.4
     - gdal>=3.1
+    - coloredlogs
 
 about:
   home: https://github.com/OpenDrift/opendrift
