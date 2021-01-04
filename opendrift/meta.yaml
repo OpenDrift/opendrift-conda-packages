@@ -1,5 +1,5 @@
 {% set name = "opendrift" %}
-{% set version = "1.4.1" %}
+{% set version = "1.5.0" %}
 
 package:
   name: "{{ name|lower }}"
@@ -34,7 +34,7 @@ requirements:
     - dask
     - xhistogram
     - opendrift-landmask-data>=0.6
-    - oil_library-opendrift>=1.1.1.4
+    - oil_library-opendrift>=1.1.1.5
     - gdal>=3.1
     - coloredlogs
 
