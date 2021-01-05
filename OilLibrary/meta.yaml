@@ -16,24 +16,24 @@ build:
 
 requirements:
   build:
-    - python
+    - python >=3
     - numpy
     - scipy
     - setuptools
     - sqlalchemy
     - transaction
-    - zope.sqlalchemy
+    - zope.sqlalchemy <1.2
     - awesome-slugify
     - unit_conversion
     - pytest
     - future
   run:
-    - python
+    - python >=3
     - numpy
     - scipy
     - sqlalchemy
     - transaction
-    - zope.sqlalchemy
+    - zope.sqlalchemy <1.2
     - awesome-slugify
     - unit_conversion
     - future
