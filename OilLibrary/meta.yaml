@@ -1,5 +1,5 @@
 {% set name = "oil_library-opendrift" %}
-{% set version = "1.1.1.5" %}
+{% set version = "1.1.3.0" %}
 
 package:
   name: "{{ name|lower }}"
@@ -7,32 +7,36 @@ package:
 
 source:
   git_url: https://github.com/OpenDrift/OilLibrary.git
-  git_rev: 57ffc9240b875328015a258069c90349e9a50845
+  git_rev: 2fce4ff019eaa8517a32795e9b815b59f54805a4
 
 build:
-  number: 1
+  number: 0
   script: "{{ PYTHON }} setup.py install"
   noarch: python
 
 requirements:
   build:
-    - python >=3
+    - python
     - numpy
     - scipy
     - setuptools
     - sqlalchemy
     - transaction
-    - zope.sqlalchemy <1.2
+    - zope.sqlalchemy
     - awesome-slugify
     - unit_conversion
-    - gitpython
+    - pytest
+    - future
   run:
-    - python >=3
+    - python
+    - numpy
+    - scipy
     - sqlalchemy
     - transaction
-    - zope.sqlalchemy <1.2
+    - zope.sqlalchemy
     - awesome-slugify
     - unit_conversion
+    - future
 
 about:
   home: https://github.com/OpenDrift/OilLibrary
