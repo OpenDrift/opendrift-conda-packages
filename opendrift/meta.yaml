@@ -1,5 +1,5 @@
 {% set name = "opendrift" %}
-{% set version = "1.5.0" %}
+{% set version = "1.5.1" %}
 
 package:
   name: "{{ name|lower }}"
@@ -10,7 +10,7 @@ source:
   git_rev: "v{{ version }}"
 
 build:
-  number: 1
+  number: 0
   script: "{{ PYTHON }} -m pip install . -vv"
   noarch: python
 
@@ -34,7 +34,7 @@ requirements:
     - dask
     - xhistogram
     - opendrift-landmask-data>=0.6
-    - oil_library-opendrift>=1.1.1.5
+    - oil_library-opendrift>=2+noaa1.1.3
     - gdal>=3.1
     - coloredlogs
 
@@ -42,5 +42,3 @@ about:
   home: https://github.com/OpenDrift/opendrift
   license: GPLv2
   summary: Open source framework for ocean trajectory modelling
-
-
