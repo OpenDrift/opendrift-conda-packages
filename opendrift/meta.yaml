@@ -38,6 +38,12 @@ requirements:
     - gdal>=3.1
     - coloredlogs
 
+test:
+  imports:
+    - opendrift_landmask_data
+    - oil_library
+    - opendrift
+
 about:
   home: https://github.com/OpenDrift/opendrift
   license: GPLv2

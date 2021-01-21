@@ -73,9 +73,9 @@ jobs:
       - run:
           name: Uploading packages
           command: |
-            ls -R builds/
+            ls -R builds/pkgs/noarch
             source activate opendrift_packages
-            echo anaconda upload -t $ANACONDA_TOKEN -u OpenDrift builds/pkgs/noarch/opendrift-landmask-data*
+            anaconda upload -t $ANACONDA_TOKEN -u OpenDrift --skip-existing builds/pkgs/noarch/opendrift-landmask-data*
 
 workflows:
   version: 2.1

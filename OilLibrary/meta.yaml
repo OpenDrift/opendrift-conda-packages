@@ -38,6 +38,10 @@ requirements:
     - unit_conversion
     - future
 
+test:
+  imports:
+    - oil_library
+
 about:
   home: https://github.com/OpenDrift/OilLibrary
   license: Public Domain
