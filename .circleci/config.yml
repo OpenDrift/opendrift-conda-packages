@@ -34,7 +34,7 @@ jobs:
             source activate opendrift_packages
             conda build --output-folder builds/pkgs --no-anaconda-upload opendrift-landmask-data
             conda build --output-folder builds/pkgs --no-anaconda-upload OilLibrary
-            conda build --output-folder builds/pkgs --no-anaconda-upload opendrift-landmask-data
+            conda build --output-folder builds/pkgs --no-anaconda-upload opendrift
             ls -R builds/
 
       - persist_to_workspace:
