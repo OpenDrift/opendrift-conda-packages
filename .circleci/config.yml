@@ -75,9 +75,9 @@ jobs:
           command: |
             ls -R builds/pkgs/noarch
             source activate opendrift_packages
-            anaconda upload -t $ANACONDA_TOKEN -u OpenDrift --skip-existing builds/pkgs/noarch/opendrift-landmask-data*
-            anaconda upload -t $ANACONDA_TOKEN -u OpenDrift --skip-existing builds/pkgs/noarch/oil_library-opendrift*
-            anaconda upload -t $ANACONDA_TOKEN -u OpenDrift --skip-existing builds/pkgs/noarch/opendrift*
+            anaconda -t "${ANACONDA_TOKEN}" upload -u OpenDrift --skip-existing builds/pkgs/noarch/opendrift-landmask-data*
+            anaconda -t "${ANACONDA_TOKEN}" upload -u OpenDrift --skip-existing builds/pkgs/noarch/oil_library-opendrift*
+            anaconda -t "${ANACONDA_TOKEN}" upload -u OpenDrift --skip-existing builds/pkgs/noarch/opendrift*
 
 workflows:
   version: 2.1
