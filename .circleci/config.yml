@@ -50,15 +50,17 @@ jobs:
       - attach_workspace:
           at: builds
       - run:
-          name: Update packages
-          command: apt-get update
+          name: Update and install packages
+          command: |
+            apt-get update
+            apt-get install jq
       - run:
           name: Add conda channels
           command: |
               conda config --add channels noaa-orr-erd
               conda config --add channels conda-forge
-      - restore_cache:
-          key: v3-deps1-{{ checksum "opendrift_packages.yml" }}
+      # - restore_cache:
+      #     key: v3-deps1-{{ checksum "opendrift_packages.yml" }}
       - run:
           name: Install requirements
           command: |
@@ -66,18 +68,22 @@ jobs:
               conda env create --file opendrift_packages.yml
               source activate opendrift_packages
             fi
-      - save_cache:
-          key: v3-deps1-{{ checksum "opendrift_packages.yml" }}
-          paths:
-            - "/opt/conda/envs"
+      # - save_cache:
+      #     key: v3-deps1-{{ checksum "opendrift_packages.yml" }}
+      #     paths:
+      #       - "/opt/conda/envs"
       - run:
           name: Uploading packages
           command: |
             ls -R builds/pkgs/noarch
             source activate opendrift_packages
-            anaconda -t "${ANACONDA_TOKEN}" upload -u OpenDrift --skip-existing builds/pkgs/noarch/opendrift-landmask-data*
-            anaconda -t "${ANACONDA_TOKEN}" upload -u OpenDrift --skip-existing builds/pkgs/noarch/oil_library-opendrift*
-            anaconda -t "${ANACONDA_TOKEN}" upload -u OpenDrift --skip-existing builds/pkgs/noarch/opendrift*
+            for p in $(jq -r '.packages | keys[]' builds/pkgs/noarch/repodata.json); do
+              echo "Uploading: ${p}"
+              p="builds/pkgs/noarch/${p}"
+
+              anaconda -t "${ANACONDA_TOKEN}" upload -u OpenDrift --skip-existing "${p}"
+              sleep 3 # try not to spam anaconda servers
+            done
 
 workflows:
   version: 2.1
