@@ -53,7 +53,7 @@ jobs:
           name: Update and install packages
           command: |
             apt-get update
-            apt-get install jq
+            apt-get install -y jq
       - run:
           name: Add conda channels
           command: |
