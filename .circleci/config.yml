@@ -54,20 +54,17 @@ jobs:
           command: |
             apt-get update
             apt-get install -y jq
-      - run:
-          name: Add conda channels
-          command: |
-              conda config --add channels noaa-orr-erd
-              conda config --add channels conda-forge
+      # - run:
+      #     name: Add conda channels
+      #     command: |
+      #         conda config --add channels noaa-orr-erd
+      #         conda config --add channels conda-forge
       # - restore_cache:
       #     key: v3-deps1-{{ checksum "opendrift_packages.yml" }}
       - run:
           name: Install requirements
           command: |
-            if [ ! -e /opt/conda/envs/opendrift_packages ]; then
-              conda env create --file opendrift_packages.yml
-              source activate opendrift_packages
-            fi
+            conda install -y anaconda-client
       # - save_cache:
       #     key: v3-deps1-{{ checksum "opendrift_packages.yml" }}
       #     paths:
@@ -76,7 +73,8 @@ jobs:
           name: Uploading packages
           command: |
             ls -R builds/pkgs/noarch
-            source activate opendrift_packages
+
+            # source activate opendrift_packages
             for p in $(jq -r '.packages | keys[]' builds/pkgs/noarch/repodata.json); do
               echo "Uploading: ${p}"
               p="builds/pkgs/noarch/${p}"
