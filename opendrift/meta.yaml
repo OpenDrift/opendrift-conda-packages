@@ -10,7 +10,7 @@ source:
   git_rev: "v{{ version }}"
 
 build:
-  number: 0
+  number: 1
   script: "{{ PYTHON }} -m pip install . -vv"
   noarch: python
 
@@ -30,6 +30,7 @@ requirements:
     - pyproj
     - cartopy
     - nc-time-axis
+    - geojson
     - xarray
     - dask
     - xhistogram
