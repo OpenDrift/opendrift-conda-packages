@@ -1,5 +1,5 @@
 {% set name = "opendrift" %}
-{% set version = "1.5.5" %}
+{% set version = "1.5.6rc1" %}
 
 package:
   name: "{{ name|lower }}"
