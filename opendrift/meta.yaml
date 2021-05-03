@@ -10,7 +10,7 @@ source:
   git_rev: "v{{ version }}"
 
 build:
-  number: 0
+  number: 2
   script: "{{ PYTHON }} -m pip install . -vv"
   noarch: python
 
@@ -24,7 +24,7 @@ requirements:
   run:
     - python>=3.7
     - numpy
-    - scipy
+    - scipy>=1.6
     - matplotlib
     - netCDF4
     - pyproj
@@ -34,7 +34,7 @@ requirements:
     - xarray
     - dask
     - xhistogram
-    - opendrift-landmask-data>=0.7
+    - opendrift-landmask-data>=0.8
     - oil_library-opendrift>=2+noaa1.1.3
     - gdal>=3.1
     - coloredlogs
