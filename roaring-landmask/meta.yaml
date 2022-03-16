@@ -5,21 +5,21 @@ package:
   name: "{{ name|lower }}"
   version: "{{ version }}"
 
-source:
-  git_url: https://github.com/gauteh/roaring-landmask.git
-  git_rev: "v{{ version }}"
+# source:
+#   git_url: https://github.com/gauteh/roaring-landmask.git
+#   # git_rev: "v{{ version }}"
+#   git_rev: "main"
 
-build:
-  number: 0
-  script: "{{ PYTHON }} pip install ."
-  noarch: python
+# build:
+#   number: 0
+#   script: "{{ PYTHON }} pip install ."
+#   noarch: python
 
 requirements:
   build:
-    - python >=3
-    - maturin
+    - python >=3.9
   run:
-    - python >=3
+    - python >=3.9
 
 test:
   imports:
@@ -28,5 +28,5 @@ test:
 about:
   home: https://github.com/gauteh/roaring-landmask
   license: MIT
-  summary: A fast and limited-memory structure with a landmask based on GSHHG for determing whether a point on Earth is on land or in the ocean
+  summary: A fast and limited-memory structure with a landmask based on GSHHS for determing whether a point on Earth is on land or in the ocean
 
