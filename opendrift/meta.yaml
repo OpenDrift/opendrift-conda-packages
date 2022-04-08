@@ -29,6 +29,7 @@ requirements:
     - netCDF4
     - pyproj
     - cartopy>=0.20
+    - requests
     - nc-time-axis
     - geojson
     - xarray
