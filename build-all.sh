@@ -13,7 +13,7 @@ fi
 eval "$(conda shell.bash hook)"
 conda activate opendrift_packages
 
-for package in opendrift-landmask-data OilLibrary opendrift; do
+for package in opendrift-landmask-data opendrift; do
   echo "building ${package}.."
 
   conda build --no-anaconda-upload "${package}"
