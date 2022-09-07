@@ -20,6 +20,8 @@ requirements:
     - python >=3.9
     - maturin
     - pip
+    - pkg-config
+    - openssl
     - {{ compiler('rust') }}
   run:
     - python >=3.9
