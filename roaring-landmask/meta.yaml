@@ -12,7 +12,7 @@ source:
 
 build:
   number: 0
-  script: "pip install . -vv"
+  script: "maturin build --release -vv"
   noarch: python
 
 requirements:
