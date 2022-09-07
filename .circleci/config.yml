@@ -6,9 +6,11 @@ jobs:
     resource_class: large
     steps:
       - checkout
+      - run: git config --global --unset url.ssh://git@github.com.insteadof
       - run:
           name: Update packages
-          command: apt-get update
+          command: |
+            apt-get update
       - run:
           name: Add conda channels
           command: |
@@ -30,8 +32,10 @@ jobs:
       - run:
           name: Building packages
           command: |
+            eval `ssh-agent`
             mkdir -p builds/pkgs
             source activate opendrift_packages
+            conda build --output-folder builds/pkgs --no-anaconda-upload roaring-landmask
             conda build --output-folder builds/pkgs --no-anaconda-upload opendrift-landmask-data
             conda build --output-folder builds/pkgs --no-anaconda-upload opendrift
             ls -R builds/
