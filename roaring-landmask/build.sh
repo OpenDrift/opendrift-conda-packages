@@ -1,3 +1,5 @@
 #! /bin/bash
 
-pip install roaring-landmask
+rustc --version
+
+$PYTHON -m pip install . --no-deps --ignore-installed -vv

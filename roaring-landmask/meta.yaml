@@ -18,6 +18,9 @@ package:
 requirements:
   build:
     - python >=3.9
+    - maturin
+    - pip
+    - {{ compiler('rust') }}
   run:
     - python >=3.9
 
