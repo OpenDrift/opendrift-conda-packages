@@ -2,4 +2,4 @@
 
 rustc --version
 
-$PYTHON -m pip install . --no-deps --ignore-installed -vv
+python -m pip install . --no-deps --ignore-installed -vv
