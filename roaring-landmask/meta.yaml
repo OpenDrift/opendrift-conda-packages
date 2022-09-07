@@ -10,10 +10,10 @@ package:
 #   # git_rev: "v{{ version }}"
 #   git_rev: "main"
 
-# build:
-#   number: 0
-#   script: "{{ PYTHON }} pip install ."
-#   noarch: python
+build:
+  number: 0
+  script: "{{ PYTHON }} pip install . -vv"
+  noarch: python
 
 requirements:
   build:
